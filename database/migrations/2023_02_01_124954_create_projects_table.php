@@ -13,15 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('to_do', function (Blueprint $table) {
-            $table->id();
+        Schema::create('projects', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->timestamps();
-            $table->string("title", 50);
-            $table->string("description", 500);
-            $table->smallInteger("states");
-            $table->integer("project_id");
-            $table->integer("user_id");
-            $table->integer("count");
+            $table->string("name", 50);
         });
     }
 
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('to_do');
+        Schema::dropIfExists('projects');
     }
 };
